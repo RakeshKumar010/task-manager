@@ -1,15 +1,27 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Signup = () => {
+  const navigater = useNavigate()
+
+  const [style,setStyle]=useState({})
     const [name,SetName]=useState()
     const [email,setEmail]=useState()
     const [password,setPassword]=useState()
     const submitFun = (e) =>{
         e.preventDefault()
         localStorage.setItem('user',JSON.stringify({"name":name,"email":email,"password":password}))
-        e.preventDeafult()
-        console.log(`email:${email}/n password:${password}`)
+        setStyle({
+          "display":"block"
+        })
+        setTimeout(()=>{
+          setStyle({
+            "display":"none"
+          })
+          navigater('/login')
+
+        },1000)
+       
     }
   return (
     <>
@@ -26,6 +38,9 @@ const Signup = () => {
         </form>
 
     </div>
+<div className="alertBox" style={style}>
+          <p>SignUp Succesfully ✔</p>
+        </div>
     </>
   )
 }
