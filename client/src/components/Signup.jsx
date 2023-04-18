@@ -8,9 +8,8 @@ const Signup = () => {
     const [name,SetName]=useState()
     const [email,setEmail]=useState()
     const [password,setPassword]=useState()
-    const submitFun = (e) =>{
+    const submitFun = async(e) =>{
         e.preventDefault()
-        localStorage.setItem('user',JSON.stringify({"name":name,"email":email,"password":password}))
         setStyle({
           "display":"block"
         })
@@ -21,7 +20,13 @@ const Signup = () => {
           navigater('/login')
 
         },1000)
-       
+        // localStorage.setItem('user',JSON.stringify({"name":name,"email":email,"password":password}))
+        let result = await fetch('http://localhost:8001/signup',{
+          method:"post",
+          headers:{'content-type':'application/json'},
+          body:JSON.stringify({name,email,password})
+        })
+        console.log(result);
     }
   return (
     <>

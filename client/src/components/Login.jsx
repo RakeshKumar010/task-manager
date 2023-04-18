@@ -5,13 +5,18 @@ const Login = () => {
     const navigater = useNavigate()
     const [email,setEmail]=useState()
     const [password,setPassword]=useState()
-    const submitFun = (e) =>{
+    const submitFun = async(e) =>{
         e.preventDefault()
-        let localData = localStorage.getItem('user')
-        localData=JSON.parse(localData)
-        if(localData.email===email && localData.password===password){
-            navigater('/dashboard')
-        }
+        let result = await fetch('http://localhost:8001/login',{
+            method:"post",
+            headers:{'content-type':'application/json'},
+            body:JSON.stringify({email,password})
+        })
+       result = await result.json()
+       if(result[0].name){
+           let localData = localStorage.setItem('user',JSON.stringify(result))
+               navigater('/dashboard')
+       }
        
     }
   return (

@@ -152,16 +152,43 @@
   justify-content: space-between;
   align-items: center;
 }
+.deshboardHead{
+box-shadow: 0 0 8px black;
+  /* background-color: rgba(255, 255, 0, 0.171); */
+  padding: 5px;
+  border-radius: 10px;
+
+  width: fit-content;
+margin: auto;
+position: relative;
+top: 1rem;
+}
 .navUl{
   display: flex;
   gap: 1vw;
   list-style-type: none;
 }
-.navUl li a{
+.navUl li a,.logoutBtn{
   background-color: yellow;
   text-decoration: none;
   padding: 8px;
   border-radius: 10px;
 
 
+}
+
+@media screen and (max-width:412px) {
+  .noteList{
+    width: 40%;
+  }
+  .login{
+    width: 90%;
+  }
+  .paragraphs{
+    width: 90%;
+  }
+  .logo{
+    width: 16%;
+    border-radius: 59px;
+  }
 }
