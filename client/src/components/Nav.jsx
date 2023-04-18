@@ -6,10 +6,11 @@ const Nav = () => {
   let localData = localStorage.getItem("user");
   return (
     <div className="navMain">
-      <Link to={"/"} className="imgRoute">
+      
+      {!localData ? (<>
+        <Link to={"/"} className="imgRoute">
         <img src={logo} alt="logo" className="logo" />
       </Link>
-      {!localData ? (
         <ul className="navUl">
           <li>
             <Link to={"/"}>Home</Link>
@@ -18,7 +19,12 @@ const Nav = () => {
             <Link to={"/login"}>Get Start</Link>
           </li>
         </ul>
+        </>
       ) : (
+        <>
+        
+        <img src={logo} alt="logo" className="logo" />
+      
         <ul className="navUl">
           <li
             className="logoutBtn"
@@ -43,6 +49,7 @@ const Nav = () => {
             Clear All
           </li>
         </ul>
+        </>
       )}
     </div>
   );

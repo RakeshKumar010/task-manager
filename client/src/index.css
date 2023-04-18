@@ -110,18 +110,8 @@
 .noteList{
   margin: 1rem;
   background: yellow;
-    /* display: contents; */
-    width: 13vw;
-    height: 15vh;
-    gap: 10px;
-    padding: 1rem;
-    list-style-type: none;
-    border-radius: 10px;
-    /* text-align: center; */
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
     border: 1px solid;
 }
 .dashboardForm{
@@ -133,10 +123,12 @@
   gap: 10px;
 
 }
-.dashboardForm input{
+.dashboardForm textarea{
   border: 0;
     padding: 10px;
+    height: 2rem;
     border-radius: 10px;
+    overflow: hidden;
 }
 .dashboardForm button{
   border: 0;
@@ -177,9 +169,13 @@ top: 1rem;
 
 }
 
+.logoutBtn:hover{
+  background-color:red;
+}
+
 @media screen and (max-width:412px) {
   .noteList{
-    width: 40%;
+    width: 90%;
   }
   .login{
     width: 90%;
@@ -190,5 +186,8 @@ top: 1rem;
   .logo{
     width: 16%;
     border-radius: 59px;
+  }
+  .noteContaner{
+    margin-top: -5vh;
   }
 }

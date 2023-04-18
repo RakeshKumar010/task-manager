@@ -21,16 +21,15 @@ const Deshboard = () => {
     <div className="dashboard">
       <h3 className="deshboardHead">Welcome, {localData[0].name}</h3>
       <form className="dashboardForm" onSubmit={addNote}>
-        <input value={text} onChange={(e) => setText(e.target.value)} />
+        <textarea value={text} onChange={(e) => setText(e.target.value)} />
         <button>Add Note</button>
       </form>
       <ul className="noteContaner">
         {notes.map((note, index) => (
-          <div className="noteList">
-            <li key={index}>{note.text}</li>
+          <div className="noteList" >
+            <p key={index}>{note.text}</p>
             
-            <div className="deleteeditBtn">
-            </div>
+            
           </div>
         ))}
       </ul>
